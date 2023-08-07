@@ -1,36 +1,28 @@
-import java.awt.Dimension;
-import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
-
-public class Grid extends JPanel{
-ArrayList<Cell> cells = new ArrayList<Cell>();
-int width; int height; int cellSize;
-
-    public Grid(){
-        width = 720;
-        height = 720;
-        cellSize = 35;
-        setPreferredSize(new Dimension(width,height));
-
+class Grid{
+    // fields
+    int cellHeight= 35;
+    Cell[][] cells = new Cell[20][20];
+  
+    // constructors
+    public Grid() {
+      for(int i=0; i<cells.length; i++) {
+        for(int j=0; j<cells[i].length; j++) {
+          cells[i][j] = new Cell(10+cellHeight*i, 10+cellHeight*j);
+        }
+      }
     }
 
-    public void setUp(){
-        int cellx = 0;
-        int celly = 0;
-       Cell c = new Cell(cellx, celly, cellSize, cellSize);
-       Cell temp = c;
-
-       while(temp.x < 720){
-
-        if
-
-        
-       }
+    public void paint(Graphics g){
+        for(int i=0; i<cells.length; i++) {
+            for(int j=0; j<cells[i].length; j++) {
+              Cell.drawCell(g, cells[i][j]);
+            }
+          }
+        }
     }
 
-    public void myPaint(Graphics g){
-        
-    }
-}

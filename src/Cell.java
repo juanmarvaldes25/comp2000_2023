@@ -1,25 +1,24 @@
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
 
-public class Cell{
-int height;
-int width;
+class Cell{
+static int size;
+//int width;
 int x;
 int y;
 
-Cell(int a, int b, int c, int d){
-   x = a;
-   y = b;
-   height = c;
-   width = d;
+Cell(){
+   size = 35; x = 0; y = 0;
 }
 
+Cell(int a, int b){
+   x = a; y = b;
+}
 
+public static void drawCell(Graphics g, Cell C){
 
-
-
+g.drawRect(C.x,C.y,C.size,C.size);
+}
 }

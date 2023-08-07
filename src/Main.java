@@ -23,50 +23,31 @@ this.setVisible(true);
     }
 
     class Canvas extends JPanel{
-       // Cell myCell;
-        //Cell border = new Cell(700,700);
-
+     Grid grid = new Grid()
+;
 
         public Canvas(){
             setPreferredSize(new Dimension(720, 720));
-            //myCell = new Cell(35,35);
+           
         }
 
          @Override
         public void paint(Graphics g){
             g.drawRect(10, 10, 700, 700);
 
-         
-            for(int i = 10; i < 710; i+= 35){
-                for(int j = 10; j < 710; j+= 35){
-                  g.drawRect(i, j, 35, 35);
-               }
-            }
-        }
-
+grid.paint(g);
 
     }
+}
 }
        
 
       
 
-      /**   @Override
-        public void paint(Graphics g){
-            g.drawRect(10, 10, 700, 700);
+     
 
 
-            for(int i = 10; i < 710; i+= 35){
-                for(int j = 10; j < 710; j+= 35){
-                    g.drawRect(i, j, 35, 35);
-                }
-            }
-        }
- 
-    }
-}
- **/
-    //grid - contains many cells
+
   
    
 
