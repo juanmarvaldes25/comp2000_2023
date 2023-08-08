@@ -1,5 +1,5 @@
 import javax.swing.JFrame;
-import javax.swing.*;
+/**import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ class Grid{
     public Grid() {
       for(int i=0; i<cells.length; i++) {
         for(int j=0; j<cells[i].length; j++) {
-          cells[i][j] = new Cell(10+cellHeight*i, 10+cellHeight*j);
+          cells[i][j] = new Cell(10+Cell.size*i, 10+Cell.size*j);
         }
       }
     }
@@ -20,9 +20,33 @@ class Grid{
     public void paint(Graphics g){
         for(int i=0; i<cells.length; i++) {
             for(int j=0; j<cells[i].length; j++) {
-              Cell.drawCell(g, cells[i][j]);
+              cells[i][j].drawCell(g);
             }
           }
         }
     }
 
+**/
+import java.awt.Graphics;
+
+public class Grid {
+  // fields
+  Cell[][] cells = new Cell[20][20];
+
+  // constructors
+  public Grid() {
+    for(int i=0; i<cells.length; i++) {
+      for(int j=0; j<cells[i].length; j++) {
+        cells[i][j] = new Cell(10+Cell.size*i, 10+Cell.size*j);
+      }
+    }
+  }
+  // methods
+  public void paint(Graphics g) {
+    for(int i=0; i<cells.length; i++) {
+      for(int j=0; j<cells[i].length; j++) {
+        cells[i][j].paint(g);
+      }
+    }
+  }
+}
