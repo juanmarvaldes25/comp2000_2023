@@ -1,5 +1,6 @@
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.Optional;
 
 public class Grid {
   Cell[][] cells = new Cell[20][20];
@@ -35,4 +36,26 @@ public class Grid {
   public Cell cellAtColRow(char c, int r) {
     return cellAtColRow(labelToCol(c), r);
   }
+
+  public Optional<Cell> cellAtPoint(Point p){
+
+    int a, b;
+Optional<Cell> optional;
+
+    try{
+      a = (int) p.getX(); b = (int) p.getY();
+       optional = Optional.ofNullable(cells[a][b]); 
+      return optional;
+    }
+     
+    catch(Exception e){
+      System.out.println("Invalid point");
+return optional;
+    }
+  
+  finally{
+
+  }
+
+}
 }

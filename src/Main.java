@@ -13,6 +13,7 @@ public class Main extends JFrame {
 
     class Canvas extends JPanel {
       Stage stage;
+      
       public Canvas() {
         setPreferredSize(new Dimension(720, 720));
         stage = StageReader.readStage("data/stage11.rvb");
