@@ -2,6 +2,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Stage {
   Grid grid;
@@ -17,5 +18,14 @@ public class Stage {
     for(Actor a: actors) {
       a.paint(g);
     }
+    Optional<Cell> mouseOverCell = grid.cellAtPoint(mouseLoc);
+    if(mouseOverCell.isPresent()){
+      Cell cell = mouseOverCell.get();
+      System.out.println(cell);
+    }
+    else{
+   System.out.println("Mouse not over cell");
+    }
   }
+
 }

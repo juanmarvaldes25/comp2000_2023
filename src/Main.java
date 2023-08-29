@@ -16,13 +16,24 @@ public class Main extends JFrame {
       
       public Canvas() {
         setPreferredSize(new Dimension(720, 720));
-        stage = StageReader.readStage("data/stage11.rvb");
+
+       try{
+        stage = StageReader.readStage("data/stage1.rvb");
+        }
+
+       catch(IOException e){
+        stage = new Stage();
+        }
       }
+
+
 
       @Override
       public void paint(Graphics g) {
         stage.paint(g, getMousePosition());
       }
+
+
     }
 
     private Main() {

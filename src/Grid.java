@@ -1,14 +1,15 @@
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class Grid {
   Cell[][] cells = new Cell[20][20];
-  
+
   public Grid() {
-    for(int i=0; i<cells.length; i++) {
-      for(int j=0; j<cells[i].length; j++) {
-        cells[i][j] = new Cell(colToLabel(i), j, 10+Cell.size*i, 10+Cell.size*j);
+    for (int i = 0; i < cells.length; i++) {
+      for (int j = 0; j < cells[i].length; j++) {
+        cells[i][j] = new Cell(colToLabel(i), j, 10 + Cell.size * i, 10 + Cell.size * j);
       }
     }
   }
@@ -22,14 +23,15 @@ public class Grid {
   }
 
   public void paint(Graphics g, Point mousePos) {
-    for(int i=0; i<cells.length; i++) {
-      for(int j=0; j<cells[i].length; j++) {
+    for (int i = 0; i < cells.length; i++) {
+      for (int j = 0; j < cells[i].length; j++) {
         cells[i][j].paint(g, mousePos);
       }
     }
   }
 
   public Cell cellAtColRow(int c, int r) {
+    
     return cells[c][r];
   }
 
@@ -37,25 +39,28 @@ public class Grid {
     return cellAtColRow(labelToCol(c), r);
   }
 
-  public Optional<Cell> cellAtPoint(Point p){
+  //task 12
+  public Optional<Cell> cellAtPoint(Point p) {
 
-    int a, b;
-Optional<Cell> optional;
 
-    try{
-      a = (int) p.getX(); b = (int) p.getY();
-       optional = Optional.ofNullable(cells[a][b]); 
-      return optional;
+    for(int i = 0; i < cells.length; i++){
+      for(int j = 0; j <cells[i].length; j++){
+        if(cells[i][j].contains(p)){
+          return Optional.of(cells[i][j]);
+        }
+      }
     }
-     
-    catch(Exception e){
-      System.out.println("Invalid point");
-return optional;
-    }
-  
-  finally{
+    return Optional.empty();
 
   }
 
-}
+  //task 15
+  /**
+     * Takes a cell consumer (i.e. a function that has a single `Cell` argument and
+     * returns `void`) and applies that consumer to each cell in the grid.
+     * @param func The `Cell` to `void` function to apply at each spot.
+     */
+    public void doToEachCell(Consumer<Cell> func) {
+      // Your job to add the body
+    }
 }
