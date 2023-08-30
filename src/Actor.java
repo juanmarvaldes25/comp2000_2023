@@ -39,4 +39,14 @@ public abstract class Actor {
     loc = inLoc;
     setPoly();
   }
+
+
+
+  public Cell location(){
+    return loc;
+  }
+
+  
+
+
 }

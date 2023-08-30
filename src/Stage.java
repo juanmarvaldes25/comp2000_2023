@@ -27,10 +27,20 @@ public class Stage {
     // do we have AI moves to make?
     if(currentState == State.BotMoving) {
       for(Actor a: actors) {
+        System.out.println(a.color);
         if(!a.isHuman()) {
+    
           List<Cell> possibleLocs = getClearRadius(a.loc, a.moves);
-          int moveBotChooses = (new Random()).nextInt(possibleLocs.size());
-          a.setLocation(possibleLocs.get(moveBotChooses));
+          AIMovementBehaviour movement;
+         
+         if (a.loc.row%2 == 0){
+         movement = new MoveOnEvenRow(a);
+          movement.move(possibleLocs);
+         }
+         else{
+          movement = new MoveOnOddRow(a);
+          movement.move(possibleLocs);
+         }
         }
       }
       currentState = State.ChoosingActor;

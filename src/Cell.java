@@ -33,4 +33,8 @@ public class Cell extends Rectangle {
       return false;
     }
   }
+
+  public int cellRow(){
+    return row;
+  }
 }
