@@ -8,6 +8,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 
+import javax.swing.text.html.HTMLDocument.Iterator;
+
 public class Grid {
   Cell[][] cells = new Cell[20][20];
   
@@ -43,16 +45,28 @@ public class Grid {
     return cellAtColRow(labelToCol(c), r);
   }
 
+  //first one to be changed
   public Optional<Cell> cellAtPoint(Point p) {
-    for(int i=0; i < cells.length; i++) {
-      for(int j=0; j < cells[i].length; j++) {
-        if(cells[i][j].contains(p)) {
-          return Optional.of(cells[i][j]);
-        }
-      }
-    }
+    // for(int i=0; i < cells.length; i++) {
+    //  for(int j=0; j < cells[i].length; j++) {
+    //    if(cells[i][j].contains(p)) {
+     //     return Optional.of(cells[i][j]);
+      //  }
+      //}
+    //}
+ArrayIterator iter = new ArrayIterator(cells);
+
+while(iter.hasNext()){
+
+Cell c = (Cell) iter.next();
+if(c.contains(p)){
+  return Optional.of(c);
+}
+}
+
     return Optional.empty();
   }
+  
 
   /**
    * Takes a cell consumer (i.e. a function that has a single `Cell` argument and
@@ -60,12 +74,24 @@ public class Grid {
    * @param func The `Cell` to `void` function to apply at each spot.
    */
   public void doToEachCell(Consumer<Cell> func) {
-    for(int i=0; i < cells.length; i++) {
-      for(int j=0; j < cells[i].length; j++) {
-        func.accept(cells[i][j]);
-      }
-    }
+   // for(int i=0; i < cells.length; i++) {
+     // for(int j=0; j < cells[i].length; j++) {
+      //  func.accept(cells[i][j]);
+      //}
+    //}
+ArrayIterator iter = new ArrayIterator(cells);
+
+while(iter.hasNext()){
+
+Cell c = (Cell) iter.next();
+func.accept(c);
+}
   }
+
+
+  
+
+
 
   public List<Cell> getRadius(Cell from, int size) {
     int i = labelToCol(from.col);
