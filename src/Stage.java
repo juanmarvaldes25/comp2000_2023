@@ -21,6 +21,7 @@ public class Stage {
     cellOverlay = new ArrayList<Cell>();
     actorInAction = Optional.empty();
     currentState = State.ChoosingActor;
+    aniBeat = AnimationBeat.getInstance();
   }
 
   public void paint(Graphics g, Point mouseLoc) {
@@ -78,9 +79,11 @@ public class Stage {
       g.drawString("strategy:", labelIndent, yLoc+3*vTab);
       g.drawString(a.strat.toString(), valueIndent, yLoc+3*vTab);
     }    
+    
+    System.out.println(aniBeat.inPhase());
     yLoc = yLoc + 3*blockVT;
     Motif torch = new Motif("assets/torch.png");
-    Float phase = 0.5f;
+    Float phase = AnimationBeat.getInstance().phaseCompletion() / 100.0f;
     torch.draw(g, labelIndent, yLoc, Color.getHSBColor(phase, 0.5f, 1.0f));
   }
 

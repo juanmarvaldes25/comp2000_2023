@@ -41,4 +41,12 @@ public class Cell extends Rectangle {
   public int aboveComparison(Cell c) {
     return Integer.compare(row, c.row);
   }
+
+  public double getX(){
+    return x;
+  }
+
+  public double getY(){
+    return y;
+  }
 }

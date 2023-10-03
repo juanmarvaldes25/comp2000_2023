@@ -38,6 +38,9 @@ public class StageReader {
           } else if(value.equals("bird")) {
             stage.actors.add(new Bird(c, human));
           }
+          else if(value.equals("horse")){
+            stage.actors.add(new Horse(c, human));
+          }
         }
       }
     } catch(IOException e) {
