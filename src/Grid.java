@@ -10,8 +10,10 @@ import java.util.function.Consumer;
 
 public class Grid implements Iterable<Cell> {
   Cell[][] cells = new Cell[20][20];
+  static AnimationBeat aniBeat;
   
   public Grid() {
+    aniBeat = AnimationBeat.getInstance();
     for(int i=0; i<cells.length; i++) {
       for(int j=0; j<cells[i].length; j++) {
         cells[i][j] = new Cell(colToLabel(i), j, 10+Cell.size*i, 10+Cell.size*j);
@@ -58,6 +60,7 @@ public class Grid implements Iterable<Cell> {
    * @param func The `Cell` to `void` function to apply at each spot.
    */
   public void doToEachCell(Consumer<Cell> func) {
+    System.out.println(aniBeat.inPhase());
     for(Cell c: this) {
       func.accept(c);
     }

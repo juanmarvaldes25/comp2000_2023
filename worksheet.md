@@ -297,6 +297,9 @@ Notice that is implmenents a beat with three phases (`a`, `b`, and `c`) and that
 
 Your task is to incorporate this code into the project _using the most appropriate design pattern_ to do so.  You will need to make some changes to your colleague's code to ensure you match the pattern.  Then incorporate the animation beat somewhere in the application to demonstrate that it is working.
 
+//Design patterns 
+strategy pattern, decorator, singleton, iterator
+
 # Task 22
 
 A collegue has provided you with a library as a [jar file](https://docs.oracle.com/javase/tutorial/deployment/jar/index.html). Jar files are a way of distributing a collection of already compiled java code. You can use the classes embedded in a jar file just as you would any class for which you have the source available.

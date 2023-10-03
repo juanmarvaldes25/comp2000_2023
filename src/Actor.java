@@ -11,6 +11,7 @@ public abstract class Actor {
   int moves;
   int turns;
   MoveStrategy strat;
+  
 
   protected Actor(Cell inLoc, Color inColor, Boolean isHuman, int inMoves) {
     setLocation(inLoc);
@@ -19,6 +20,7 @@ public abstract class Actor {
     moves = inMoves;
     turns = 1;
     setPoly();
+    
   }
 
   public void paint(Graphics g) {
@@ -38,6 +40,12 @@ public abstract class Actor {
 
   public void setLocation(Cell inLoc) {
     loc = inLoc;
+
+    //-------------------------------------
+//Testing animation beat
+//System.out.println(aniBeat.inPhase());
+//------------------------------
+
     if(loc.row % 2 == 0) {
       strat = new RandomMove();
     } else {

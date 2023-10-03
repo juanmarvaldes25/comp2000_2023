@@ -1,14 +1,25 @@
+
 public class AnimationBeat {
+    //USE the SINGLETON pattern
     private long started;
     private long a; // length of phase a
     private long b; // length of phase b
     private long c; // length of phase c
+    private static AnimationBeat uniqueBeat;
    
-    public AnimationBeat() {
+    private AnimationBeat() {
         started = System.currentTimeMillis();
         this.a = 5000;
         this.b = 500;
         this.c = 500;
+    }
+
+    public static AnimationBeat getInstance(){
+        if(uniqueBeat == null){
+            uniqueBeat = new AnimationBeat();
+        }
+
+        return uniqueBeat;
     }
 
     // returns which phase the animation is currently in

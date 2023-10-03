@@ -10,6 +10,7 @@ public class Stage {
   List<Actor> actors;
   List<Cell> cellOverlay;
   Optional<Actor> actorInAction;
+  AnimationBeat aniBeat;
 
   enum State {ChoosingActor, SelectingNewLocation, BotMoving}
   State currentState;
